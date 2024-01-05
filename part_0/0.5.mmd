@@ -1,20 +1,24 @@
-sequenceDiagram
+
     participant browser
     participant server
 
     browser->>server: GET - https://studies.cs.helsinki.fi/exampleapp/spa
+    activate server
     server-->>browser: HTML Document
+    deactivate server
 
     browser->>server: GET - https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
     server-->>browser: CSS Document
+    deactivate server
 
     browser->>server: GET - https://studies.cs.helsinki.fi/exampleapp/main.js
+    activate server
     server-->>browser: JavaScript Document
+    deactivate server
 
     browser->>server: GET - https://studies.cs.helsinki.fi/exampleapp/data.json
-    server-->>browser: {content: "hey", date: "2024-01-02T15:42:19.246Z"}
-    
-    browser->>server: POST - https://studies.cs.helsinki.fi/exampleapp/new_note_spa {content: "hey", date: "2024-01-05T20:38:08.793Z"}
-    server-->>browser: {message: "note created"} - The page is updated using the js code.
+    activate server
+    server-->>browser: [{content: "", date: "2024-01-05T12:06:44.492Z"},…]
+    deactivate server
 
-    Note right of browser:  The browser executes the callabck function that renders the note.
