@@ -14,4 +14,7 @@ sequenceDiagram
     browser->>server: GET - https://studies.cs.helsinki.fi/exampleapp/data.json
     server-->>browser: {content: "hey", date: "2024-01-02T15:42:19.246Z"}
     
+    browser->>server: POST - https://studies.cs.helsinki.fi/exampleapp/new_note_spa {content: "hey", date: "2024-01-05T20:38:08.793Z"}
+    server-->>browser: {message: "note created"} - The page is updated using the js code.
+
     Note right of browser:  The browser executes the callabck function that renders the note.
