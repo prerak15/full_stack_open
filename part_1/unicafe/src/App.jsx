@@ -5,20 +5,7 @@ const Button = (props) => (
     {props.text}
   </button>
 )
-const Average = ({good, bad, all}) => {
-  return (
-    <div>
-      <p>average {((1*good) + (-1*bad))/all}</p>
-    </div>
-  )
-}
-const PosF = ({good, all}) => {
-  return (
-    <div>
-      <p>positive {(good/all)*100} %</p>
-    </div>
-  )
-}
+
 const StaticsLine = ({text, value}) => {
   if (text === "positive") {
     return (
@@ -49,12 +36,14 @@ const Statistics = ({good, neutral, bad}) => {
   return(
     <div>
       <table>
+      <tbody>
       <StaticsLine text="good" value={good} />
       <StaticsLine text="neutral" value={neutral} />
       <StaticsLine text="bad" value={bad} />
       <StaticsLine text="all" value={all} />
       <StaticsLine text="average" value={((1*good) + (-1*bad))/all} />
       <StaticsLine text="positive" value={(good/all)*100} />
+      </tbody>
       </table>
       </div>
   )
@@ -76,9 +65,6 @@ const App = () => {
 
       <h1> statistics </h1>
       <Statistics good={good} neutral={neutral} bad={bad} />
-      {/* <Display text="good" value={good} />
-      <Display text="neutral" value={neutral} />
-      <Display text="bad" value={bad} /> */}
 
     </div>
   )
